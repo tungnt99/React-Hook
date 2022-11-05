@@ -18,9 +18,18 @@ export default function ListTodo() {
             alert("input jobs is required");
             return;
         }
-        let todo = {id: '', title: jobs, type: 'Thanh Tung'};
+        let todo = {
+            id: Math.floor((Math.random()*1001 + 1)), 
+            title: jobs, 
+            type: 'Thanh Tung'
+        };
         setTodos([...todos, todo]);
         setJobs('');
+    }
+    const deleteDataTodo = (id) =>{
+        let currentTodos = todos
+        currentTodos = currentTodos.filter(item => item.id !== id);
+        setTodos(currentTodos)
     }
   return (
     <div className='add-todo'>
@@ -31,10 +40,13 @@ export default function ListTodo() {
         <AddTodo
             todos={todos}
             title={'All todos'}
+            deleteDataTodo={deleteDataTodo}
+
         />
         <AddTodo
             todos={todos.filter(item => item.address === 'An Khanh')}
             title={`My name is Tung`}
+            deleteDataTodo={deleteDataTodo}
         />
     </div>
   )

@@ -6,7 +6,7 @@ export default function AddTodo(props) {
    const todos = props.todos
   return (
     <div className='container'>
-       
+        <p className='title'>{props.title}</p>
          <div className='todo-list'>
             {todos && todos.length > 0 && todos.map((item, index)=>{
               return(
@@ -15,7 +15,7 @@ export default function AddTodo(props) {
                 </div>
               )
             })}
-
+            <hr/>
         </div>
     </div>
   )

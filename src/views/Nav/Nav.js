@@ -6,13 +6,13 @@ export default function Nav() {
   return (
     <ul className='navbar-list'>
         <li>
-          <NavLink  className={(navData) => (navData.isActive ? "active-style" : 'none')} to="/">Home</NavLink>
+          <NavLink to="/" activeClassName="active" >Home</NavLink>
         </li>
         <li>
           <NavLink to="/todolist" activeClassName="active">Todo List</NavLink>
         </li>
         <li><NavLink to="/useeffect" activeClassName="active">UseEffect</NavLink></li>
-        <li><NavLink to="#about" activeClassName="active">About</NavLink></li>
+        <li><NavLink to="/covid19" activeClassName="active">Covid 19</NavLink></li>
     </ul>
   )
 }

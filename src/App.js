@@ -9,6 +9,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Covid from './views/UseEffect/Covid-19/Covid';
 function App() {
 
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route exact path="/" element={<Home/>}/>
               <Route exact path="/todolist" element={<ListTodo/>}/>
               <Route exact path="/useeffect" element={<UseEffect/>}/>
+              <Route exact path="/covid19" element={<Covid/>}/>
 
 
           </Routes>

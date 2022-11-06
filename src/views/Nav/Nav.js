@@ -11,7 +11,7 @@ export default function Nav() {
         <li>
           <NavLink to="/todolist" activeClassName="active">Todo List</NavLink>
         </li>
-        <li><NavLink to="#contact" activeClassName="active">Contact</NavLink></li>
+        <li><NavLink to="/useeffect" activeClassName="active">UseEffect</NavLink></li>
         <li><NavLink to="#about" activeClassName="active">About</NavLink></li>
     </ul>
   )

@@ -2,6 +2,8 @@ import './App.css';
 import Home from './views/Home/Home';
 import Nav from "./views/Nav/Nav";
 import ListTodo from './views/TodoList/ListTodo';
+import UseEffect from './views/UseEffect/UseEffect';
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +19,7 @@ function App() {
           <Routes>
               <Route exact path="/" element={<Home/>}/>
               <Route exact path="/todolist" element={<ListTodo/>}/>
+              <Route exact path="/useeffect" element={<UseEffect/>}/>
 
 
           </Routes>

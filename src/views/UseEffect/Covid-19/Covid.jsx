@@ -4,18 +4,32 @@ import './css/style.css'
 import moment from 'moment';
 
 export default function Covid() {
-    const [dataCovid, setDataCovid] = useState([])
+    const [dataCovid, setDataCovid] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
+
   useEffect(() => {
     const getDataCovid = async() => {
-        let res = await axios.get('https://api.covid19api.com/country/vietnam?from=2022-11-06T00:00:00Z&to=2021-04-01T00:00:00Z')
-        let data = res && res.data ? res.data : [];
-        if(data && data.length>0){
-            data.map(item => {
-                item.Date = moment(item.Date).format('DD/MM/YYYY');
-                return item;
-            })
+        // setTimeout(async() => {
+            try{
+            let res = await axios.get('https://api.covid19api.com/country/vietnam?from=2022-11-06T00:00:00Z&to=2021-04-01T00:00:00Z')
+            let data = res && res.data ? res.data : [];
+            if(data && data.length>0){
+                data.map(item => {
+                    item.Date = moment(item.Date).format('DD/MM/YYYY');
+                    return item;
+                })
+                data = data.reverse()
+            }
+            setDataCovid(data);
+            setIsLoading(false);
+            setIsError(false);
         }
-        setDataCovid(data)
+        catch(e) {
+            setIsError(true);
+            setIsLoading(false);
+        }
+        // }, 3000)
 
     }
     getDataCovid();
@@ -37,7 +51,7 @@ export default function Covid() {
                 </tr>
             </thead>
             <tbody className='data-body'>
-                {dataCovid && dataCovid.length>0 && dataCovid.map((item, index) => {
+                {isError === false && isLoading === false && dataCovid && dataCovid.length>0 && dataCovid.map((item, index) => {
                     return(
                         <tr key={index}>
                             <td>{item.Confirmed}</td>
@@ -49,6 +63,15 @@ export default function Covid() {
                         </tr>
                     )
                 })}
+                {isLoading === true && <tr >
+                    <td colspan='5' className='text-center'>Loading data...</td>
+                    </tr>
+                }
+                   {isError === true
+                        && <tr >
+                            <td colSpan='5' style={{ 'textAlign': 'center' }}>  Something wrong... </td>
+                        </tr>
+                    }   
 
             </tbody>
        

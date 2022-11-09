@@ -1,0 +1,24 @@
+.blogs-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+}
+.blogs-container .single-blog {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 0 10px;
+  max-width: 400px;
+  text-align: left !important;
+}
+.blogs-container .single-blog .title {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.blogs-container .single-blog .blog-content {
+  padding: 10px 0;
+  font-size: 16px;
+}/*# sourceMappingURL=blog.css.map */

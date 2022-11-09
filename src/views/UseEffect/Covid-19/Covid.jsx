@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useFetch from '../../../customize/fetch';
 import moment from 'moment';
 import './css/style.css'
 import { CountDown, NewCountDown } from '../Countdown/Countdown';
 export default function Covid() {
-    const today = new Date(new Date().setHours(0, 0, 0, 0));
-    const priorDate = moment().subtract(30, 'days')
+    const today = moment().startOf('day').toISOString(true);
+    const priorDate = moment().startOf('day').subtract(31, 'day').toISOString(true);
     const {data: dataCovid, isLoading, isError} = 
     // useFetch('https://api.covid19api.com/country/vietnam?from=2021-10-01T00:00:00Z&to=2021-12-02T00:00:00Z') //fix cứng
-    useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate.toISOString()}&to=${today.toISOString()}`) //fix mềm
+    useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${today}`, true) //fix mềm
 
     const onTimesup = () => {
         alert('times up')
       }
   return (
     <>  
-        <CountDown onTimesup={onTimesup} />
+        {/* <CountDown onTimesup={onTimesup} /> */}
         <span>---------------------</span>
         <NewCountDown onTimesup={onTimesup} />
         <div className='container'>
@@ -45,7 +45,7 @@ export default function Covid() {
                         )
                     })}
                     {isLoading === true && <tr >
-                        <td colspan='5' className='text-center'>Loading data...</td>
+                        <td colSpan='5' className='text-center'>Loading data...</td>
                         </tr>
                     }
                     {isError === true

@@ -10,6 +10,8 @@ import {
   Route,
 } from "react-router-dom";
 import Covid from './views/UseEffect/Covid-19/Covid';
+import Blog from './views/UseEffect/Blog/Blog';
+import DetailBlog from './views/UseEffect/Blog/BlogDetail';
 function App() {
 
   return (
@@ -22,6 +24,8 @@ function App() {
               <Route exact path="/todolist" element={<ListTodo/>}/>
               <Route exact path="/useeffect" element={<UseEffect/>}/>
               <Route exact path="/covid19" element={<Covid/>}/>
+              <Route exact path="/blog" element={<Blog/>}/>
+              <Route exact path="/blog/:id" element={<DetailBlog/>}/>
 
 
           </Routes>

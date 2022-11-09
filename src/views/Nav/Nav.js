@@ -14,6 +14,7 @@ export default function Nav() {
         <li><NavLink to="/useeffect" activeclassname="active">UseEffect</NavLink></li>
         <li><NavLink to="/covid19" activeclassname="active">Covid 19</NavLink></li>
         <li><NavLink to="/blog" activeclassname="active">Blog</NavLink></li>
+        <li><NavLink to="/addblog" activeclassname="active">Add New Blog</NavLink></li>
 
     </ul>
   )

@@ -21,4 +21,12 @@
 .blogs-container .single-blog .blog-content {
   padding: 10px 0;
   font-size: 16px;
+}
+
+.add-blog .form-group {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.add-blog .form-group .form-label {
+  float: left;
 }/*# sourceMappingURL=blog.css.map */

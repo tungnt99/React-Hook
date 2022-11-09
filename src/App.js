@@ -12,6 +12,7 @@ import {
 import Covid from './views/UseEffect/Covid-19/Covid';
 import Blog from './views/UseEffect/Blog/Blog';
 import DetailBlog from './views/UseEffect/Blog/BlogDetail';
+import AddNewBlog from './views/UseEffect/Blog/AddNewBlog';
 function App() {
 
   return (
@@ -26,8 +27,7 @@ function App() {
               <Route exact path="/covid19" element={<Covid/>}/>
               <Route exact path="/blog" element={<Blog/>}/>
               <Route exact path="/blog/:id" element={<DetailBlog/>}/>
-
-
+              <Route exact path="/addblog" element={<AddNewBlog/>}/>
           </Routes>
 
         </div>

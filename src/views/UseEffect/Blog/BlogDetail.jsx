@@ -13,9 +13,15 @@ const DetailBlog = () => {
         <>
 
             <div className="container">
-                <h1>{dataBlogDetail.id}</h1>
-                <h2>{dataBlogDetail.title}</h2>
-                <h3>{dataBlogDetail.body}</h3>
+                <div className="blog-detail">
+                    {dataBlogDetail && 
+                        <>
+                            <h1>{dataBlogDetail.id}</h1>
+                            <h2>{dataBlogDetail.title}</h2>
+                            <h3>{dataBlogDetail.body}</h3>
+                        </>
+                    }
+                </div>
                 
                 {isLoading === true && <div >
                         <span className='text-center'>Loading data...</span>
